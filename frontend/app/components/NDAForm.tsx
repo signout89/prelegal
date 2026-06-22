@@ -18,7 +18,7 @@ function Field({
 }) {
   return (
     <div className="mb-4">
-      <label className="block text-sm font-semibold text-gray-700 mb-1">
+      <label className="block text-sm font-semibold text-gray-900 mb-1">
         {label}
       </label>
       {hint && <p className="text-xs text-gray-500 mb-1">{hint}</p>}
@@ -28,7 +28,7 @@ function Field({
 }
 
 const inputClass =
-  "w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent";
+  "w-full border border-gray-300 rounded-md px-3 py-2 text-sm bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent";
 
 const sectionClass = "mb-6 pb-6 border-b border-gray-200 last:border-0";
 
@@ -66,7 +66,7 @@ export default function NDAForm({ data, onChange }: Props) {
 
         <Field label="MNDA Term" hint="The length of this MNDA">
           <div className="space-y-2">
-            <label className="flex items-center gap-2 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-sm text-gray-900 cursor-pointer">
               <input
                 type="radio"
                 name="mndaTermType"
@@ -79,14 +79,14 @@ export default function NDAForm({ data, onChange }: Props) {
                 type="number"
                 min="1"
                 max="10"
-                className="w-16 border border-gray-300 rounded px-2 py-1 text-sm"
+                className="w-16 border border-gray-300 rounded px-2 py-1 text-sm bg-white text-gray-900"
                 value={data.mndaTermYears}
                 onChange={set("mndaTermYears")}
                 disabled={data.mndaTermType !== "expires"}
               />
               year(s) from Effective Date
             </label>
-            <label className="flex items-center gap-2 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-sm text-gray-900 cursor-pointer">
               <input
                 type="radio"
                 name="mndaTermType"
@@ -106,7 +106,7 @@ export default function NDAForm({ data, onChange }: Props) {
           hint="How long Confidential Information is protected"
         >
           <div className="space-y-2">
-            <label className="flex items-center gap-2 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-sm text-gray-900 cursor-pointer">
               <input
                 type="radio"
                 name="confidentialityTermType"
@@ -120,14 +120,14 @@ export default function NDAForm({ data, onChange }: Props) {
                 type="number"
                 min="1"
                 max="10"
-                className="w-16 border border-gray-300 rounded px-2 py-1 text-sm"
+                className="w-16 border border-gray-300 rounded px-2 py-1 text-sm bg-white text-gray-900"
                 value={data.confidentialityTermYears}
                 onChange={set("confidentialityTermYears")}
                 disabled={data.confidentialityTermType !== "fixed"}
               />
               year(s) from Effective Date (trade secrets protected until no longer applicable)
             </label>
-            <label className="flex items-center gap-2 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-sm text-gray-900 cursor-pointer">
               <input
                 type="radio"
                 name="confidentialityTermType"
