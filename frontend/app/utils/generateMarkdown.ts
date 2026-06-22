@@ -36,20 +36,10 @@ export function generateMarkdown(data: NDAData): string {
     });
   };
 
-  const mndaTermLine =
-    data.mndaTermType === "expires"
-      ? `Expires ${data.mndaTermYears || "1"} year(s) from Effective Date.`
-      : "Continues until terminated in accordance with the terms of the MNDA.";
-
-  const confidentialityLine =
-    data.confidentialityTermType === "fixed"
-      ? `${data.confidentialityTermYears || "1"} year(s) from Effective Date, but in the case of trade secrets until Confidential Information is no longer considered a trade secret under applicable laws.`
-      : "In perpetuity.";
-
   const standardTermsWithValues = STANDARD_TERMS.replace(
-    /\$\{"{Governing Law}"\}/g,
+    /\{Governing Law\}/g,
     data.governingLaw || "[Governing Law]"
-  ).replace(/\$\{"{Jurisdiction}"\}/g, data.jurisdiction || "[Jurisdiction]");
+  ).replace(/\{Jurisdiction\}/g, data.jurisdiction || "[Jurisdiction]");
 
   return `# Mutual Non-Disclosure Agreement
 
