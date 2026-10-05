@@ -42,3 +42,55 @@ export const DEFAULT_NDA_DATA: NDAData = {
   party2Address: "",
   party2Date: "",
 };
+
+export interface FieldSpec {
+  key: string;
+  label: string;
+  section: string;
+  required: boolean;
+  hint: string;
+  options: string[] | null;
+}
+
+export interface DocSpec {
+  id: string;
+  name: string;
+  description: string;
+  templates: string[];
+  party_a: string;
+  party_b: string;
+  fields: FieldSpec[];
+}
+
+export type Fields = Record<string, string>;
+
+export interface ChatMessage {
+  role: "user" | "assistant";
+  content: string;
+}
+
+export interface ChatResponse {
+  reply: string;
+  document_type: string | null;
+  fields: Fields;
+  missing: string[];
+  complete: boolean;
+}
+
+export interface User {
+  id: number;
+  email: string;
+  name: string;
+}
+
+export interface DocumentSummary {
+  id: number;
+  title: string;
+  document_type: string;
+  updated_at: string;
+}
+
+export interface SavedDocument extends DocumentSummary {
+  fields: Fields;
+  messages: ChatMessage[];
+}
