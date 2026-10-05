@@ -1,0 +1,32 @@
+[project]
+name = "prelegal-backend"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "borisatanasov", email = "boris.at@icloud.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "bcrypt>=5.0.0",
+    "email-validator>=2.3.0",
+    "fastapi>=0.142.2",
+    "litellm>=1.104.0",
+    "markdown>=3.11",
+    "pydantic>=2.13.5",
+    "pyjwt>=2.15.1",
+    "python-dotenv>=1.2.4",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+prelegal-backend = "prelegal_backend:main"
+
+[build-system]
+requires = ["uv_build>=0.12.6,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.13.1",
+    "pytest>=9.1.1",
+]
